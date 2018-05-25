@@ -1,0 +1,173 @@
+.overlay {
+    /* Handles the overlay for the login and registration popup modals */
+    position: fixed;
+    background-color: #ECF0F1;
+    z-index: 2;
+    border-radius: 25px;
+    border-color: #7F8C8D;
+    border-style: solid;
+    border-width: 2px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 45%;
+    height: 500px;
+    display: block;
+}
+
+#overlayLogin {
+
+    height: 400px; /* Controls the height for login modal */
+}
+
+.close {
+    /* Styes the close x in the top right of the login or register modal */
+    text-align: right;
+    margin-top: 5px;
+    margin-right: 5px;
+    color: #C0392B;
+}
+
+.inputcentre {
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.profileinput {
+    /* Styling for the inputs in the profile form */
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    margin-bottom: 10px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+th {
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+.addproduct {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+#centre
+{
+    text-align: center;
+}
+
+.right-img
+{
+    float: right;
+}
+
+.imageFloatRight {
+    float: right;
+    margin: 80px 0px 10px 30px;
+}
+
+.about {
+    float: left;
+    margin-left: 20px;
+    width: 50%;
+    text-align: left;
+}
+
+.profilebackground {
+    width: 700px;
+    background-color: #ECF0F1;
+    border-radius: 25px;
+}
+
+.profilewrapper {
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+.inputwrapper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+#tab1 #tab2 #tab3 {
+    position: absolute;
+}
+
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+
+.profiletabs {
+    /* style the tabs for the profile*/
+    background-color: #34495e;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+}
+
+.active {
+    background-color: #7f8c8d;
+    border-radius: 25px;
+}
+
+.myradio {
+    margin-bottom: 10px;
+}
+
+.labelRadio {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.fixed {
+    table-layout: auto;
+    overflow: hidden;
+}
+
+#end {
+    height: 5px;
+}
+
+.seperator {
+    background-color: #16a085;
+}
+
+.headers {
+    text-align: center;
+}
+
+#midlabel {
+    text-align: center;
+    font-size: 10px;
+}
+
+.container-b {
+    background-color: #ecf0f1;
+    border-radius: 15px;
+}

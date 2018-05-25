@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Company Analysis
+{% endblock %}
+
+{% block main %}
+    <h2>Hello {{ analysis.contact }}</h2>
+    <h3>Welcome to the Analysis Page for {{ analysis.company }}</h3>
+    <table class="table fixed table-hovered table-condense table-bordered">
+        <tr>
+            <th scope="col"><h4>Labels</h4></th>
+            <th class="headers" scope="col"><h4>Actuals</h4></th>
+            <th class="headers" scope="col"><h4>% of Revenue</h4></th>
+            <th class="headers" scope="col"><h4>Gameplan</h4></th>
+            <th class="headers" scope="col"><h4>% of Gameplan Revenues</h4></th>
+            <th class="headers" scope="col"><h4>Difference</h4></th>
+        </tr>
+        <tr>
+            <th><h4>Sales Revenues</h4></th>
+            <td><h6>${{ analysis.current_revenue }}</h6></td>
+            <td><h6>{{ analysis.revenuespercentages }}%</h6></td>
+            <td><h6>${{ analysis.target_revenue }}</h6></td>
+            <td><h6>100%</h6></td>
+            <td><h6>{{ analysis.revenue_difference }}%</h6></td>
+        </tr>
+        <tr>
+            <th><h4>Cost of Sales</h4></th>
+            <td><h6>${{ analysis.current_cost_sales }}</h6></td>
+            <td><h6>{{ analysis.current_cost_salespercentage }}%</h6></td>
+            <td><h6>${{ analysis.target_cost_sales }}</h6></td>
+            <td><h6>{{ analysis.target_cost_salespercentage }}%</h6></td>
+            <td><h6>{{ analysis.cost_of_sales_difference }}%</h6></td>
+        </tr>
+        <tr>
+            <th><h4>Gross Margin</h4></th>
+            <td><h6>${{ analysis.current_gmdollars }}</h6></td>
+            <td><h6>{{ analysis.current_gmpercentage }}%</h6></td>
+            <td><h6>${{ analysis.target_gmdollars }}</h6></td>
+            <td><h6>{{ analysis.target_gmpercentage }}%</h6></td>
+            <td><h6>{{ analysis.gross_margin_difference }}%</h6></td>
+        </tr>
+        <tr>
+            <th class="seperator" colspan="2">&nbsp;</th>
+            <th id="midlabel" class="seperator header"><h6>% of GM</h6></th>
+            <th class="seperator" colspan="1">&nbsp;</th>
+            <th id="midlabel" class="seperator header"><h6>% of GM</h6></th>
+            <th class="seperator" colspan="1">&nbsp;</th>
+        </tr>
+        <tr>
+            <th><h4>Total Payroll Costs</h4></th>
+            <td><h6>${{ analysis.current_comp }}</h6></td>
+            <td><h6><h6>{{ analysis.current_comppercentage }}%</h6></h6></td>
+            <td><h6>${{ analysis.target_comp }}</h6></td>
+            <td><h6><h6>{{ analysis.target_comppercentage }}%</h6></h6></td>
+            <td><h6>{{ analysis.compensation_difference }}%</h6></td>
+        </tr>
+        <tr>
+            <th><h4>Marketing Cost</h4></th>
+            <td><h6>${{ analysis.current_marketing }}</h6></td>
+            <td><h6><h6>{{ analysis.current_marketingpercentage }}%</h6></h6></td>
+            <td><h6>${{ analysis.target_marketing}}</h6></td>
+            <td><h6><h6>{{ analysis.target_marketingpercentage }}%</h6></h6></td>
+            <td><h6>{{ analysis.marketing_difference }}%</h6></td>
+        </tr>
+        <tr>
+            <th><h4>General-Admin</h4></th>
+            <td><h6>${{ analysis.GAC }}</h6></td>
+            <td><h6><h6>{{ analysis.currentGAC_percentage}}%</h6></h6></td>
+            <td><h6>${{ analysis.GAC }}</h6></td>
+            <td><h6><h6>{{ analysis.targetGAC_percentage }}%</h6></h6></td>
+            <td><h6>{{ analysis.gacdifference }}%</h6></td>
+        </tr>
+        <tr>
+            <th><h4>Occupancy</h4></th>
+            <td><h6>${{ analysis.occupancy }}</h6></td>
+            <td><h6>{{ analysis.occupancypercentage }}%</h6></td>
+            <td><h6>${{ analysis.occupancy }}</h6></td>
+            <td><h6>{{ analysis.target_occupancypercentage }}%</h6></td>
+            <td><h6>{{ analysis.occupancy_difference }}%</h6></td>
+        </tr>
+        <tr>
+            <th><h4>Total Expenses</h4></th>
+            <td><h6>${{ analysis.total_expenses }}</h6></td>
+            <td><h6>{{ analysis.current_expensepercentage }}%</h6></td>
+            <td><h6>${{ analysis.target_total_expenses }}</h6></td>
+            <td><h6>{{ analysis.target_expensepercentage }}%</h6></td>
+            <td><h6>{{ analysis.totalexpensedifference }}%</h6></td>
+        </tr>
+        <tr>
+            <th class="seperator" id="end" colspan="6">&nbsp;</th>
+        </tr>
+        <tr>
+            <th><h4>Profit</h4></th>
+            <td><h6>${{ analysis.current_profit }}</h6></td>
+            <td><h6>{{ analysis.current_profitpercentage }}%</h6></td>
+            <td><h6>${{ analysis.desiredprofit }}</h6></td>
+            <td><h6>{{ analysis.target_profitpercentage }}%</h6></td>
+            <td><h6>{{ analysis.profitdifference }}%</h6></td>
+        </tr>
+    </table>
+{% endblock %}

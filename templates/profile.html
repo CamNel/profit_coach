@@ -1,0 +1,226 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome to Profit Coach!</h1>
+    <h3>Enter your information to come up with the best gameplan</h3>
+        <ul class="pager">
+            <li class="tabs active tab1"><a id="tab1link" href="#tab1">General Profile Information</a></li>
+            <li class="tabs tab2"><a id="tab2link" href="#tab2">Revenues, Margins and Products</a></li>
+            <li class="tabs tab3"><a id="tab3link" href="#tab3">Employees and Location</a></li>
+            <li class="tabs tab4"><a id="tab4link" href="#tab4">Marketing and General Admin</a></li>
+        </ul>
+    <form name="profile" autofocus action="/profile" method="post" onsubmit="return profileValidate();">
+        <div class="profilewrapper">
+        <div class="profilebackground">
+        <div class="inputwrapper">
+        <div id="tab1" class="tabContent">
+            <h4><u>General Profile</u></h4>
+            <input autofocus class="form-control profileinput" name="companyname" placeholder="Company Name" autocomplete="on" type="text"/>
+            <input class="form-control profileinput" name="streetaddress" placeholder="Street Address" type="text" autocomplete="on"/>
+            <input class="form-control profileinput" name="city" placeholder="Enter your City" type="text" autocomplete="on"/>
+            <select class="form-control profileinput" name="state" autocomplete="on">
+                <option value="" selected="selected">Select a State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+            </select>
+            <input class="form-control profileinput" name="zip" placeholder="Zip Code" type="text" autocomplete="on"/>
+            <input class="form-control profileinput" name="contactname" placeholder="Enter your contact name" type="text" autocomplete="on"/>
+            <select class="form-control profileinput" name="businessstruct" autocomplete="on">
+                <option value="" selected="selected">Select a Business Structure</option>
+                <option value="llc">LLC</option>
+                <option value="scorp">S CORP</option>
+                <option value="corp">CORP</option>
+                <option value="individual">Individual</option>
+                <option value="partnership">Partnership</option>
+                <option value="np">Non-Profit</option>
+                <option value="other">Other</option>
+            <input class="form-control profileinput" name="title" placeholder="Enter your title with the company" type="text" autocomplete="on"/>
+
+            <select class="form-control profileinput" name="industry" autocomplete="on">
+                <option value="" selected="selected">Select an Industry</option>
+                <option value="retail">Retail</option>
+                <option value="wholesale">Wholesale</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="service">Service</option>
+
+            <input class="form-control profileinput" name="yearsinbusiness" placeholder="Number of Years in business" type="number" min="0" autocomplete="on"/>
+
+            <a href="#tab2" class="next" id="next1"><span class="btn btn-primary">NEXT ></span></a>
+        </div>
+        <div id="tab2" class="tabContent" style="display: none">
+            <h4><u>Revenues and Margins</u></h4>
+            <input class="form-control profileinput" name="sevenrevenue" placeholder="$ 2017 Years Revenue" type="number" autocomplete="on" min="0">
+            <input class="form-control profileinput" name="sixrevenue" placeholder="$ 2016 Years Ago Revenue" type="number" autocomplete="on" min="0">
+            <input class="form-control profileinput" name="fiverevenue" placeholder="$ 2015 Years Ago Revenue" type="number" autocomplete="on" min="0">
+            <input class="form-control profileinput" name="averagemargin" placeholder="% Average Gross Margin" type="number" autocomplete="on" min="0">
+            <h4><u>Product Information</u></h4>
+            <table class="table table-bordered table-hover" id="producttable">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product/Service</th>
+                    <th scope="col">Product Price Per Unit</th>
+                    <th scope="col"># of Units</th>
+                    <th scope="col">Gross Margin %</th>
+                </tr>
+                <tbody>
+                <tr>
+                    <td><label>1</label></td>
+                    <td><input class="form-control flat" name="product1" placeholder="Product/Service" type="text"  autocomplete="on"></td>
+                    <td><input class="form-control flat" name="product1ppu" placeholder="Price per Unit" type="text"  autocomplete="on"></td>
+                    <td><input class="form-control flat" name="product1units" placeholder="# of Units" type="text"  autocomplete="on"></td>
+                    <td><input class="form-control flat" name="product1gm" placeholder="Gross Margin" type="text"  autocomplete="on"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="addproduct">
+                <button class="btn btn-default" id="add" type="button">Add Product +</button>
+            </div>
+            <div class="addproduct">
+                <button class="btn btn-default btn-sm" id="remove" type="button">Remove Last Product</button>
+            </div>
+            <a href="#" class="next" id="next2"><span class="btn btn-primary">NEXT ></span></a>
+        </div>
+        <div class="tabContent" id='tab3' style="display: none">
+            <h4><u>Compensation</u></h4>
+            <table class="table table-bordered table-hover" id="compensation">
+                <tr>
+                    <th id="centre" scope="col">Type</th>
+                    <th id="centre" scope="col"># of Employee's</th>
+                    <th id="centre" scope="col">Avg Comp per Employee</th>
+                </tr>
+                <tr>
+                    <td><label>Owner(Executive)</label></td>
+                    <td><input class="form-control flat" name="owneree" placeholder="# Executive Employee's"></td>
+                    <td><input class="form-control flat" name="ownercomp" placeholder="$ Executive Aver per Employee Comp"></td>
+                </tr>
+                <tr>
+                    <td><label>Manager</label></td>
+                    <td><input class="form-control flat" name="manageree" placeholder="# Manager Employees"></td>
+                    <td><input class="form-control flat" name="managercomp" placeholder="$ Manager Aver per Employee Comp"></td>
+                </tr>
+                <tr>
+                    <td><label>Sales</label></td>
+                    <td><input class="form-control flat" name="salesee" placeholder="# Sales Employees"></td>
+                    <td><input class="form-control flat" name="salescomp" placeholder="$ Sales Aver per Employee Comp"></td>
+                </tr>
+                <tr>
+                    <td><label>Service</label></td>
+                    <td><input class="form-control flat" name="serviceee" placeholder="# Service Employees"></td>
+                    <td><input class="form-control flat" name="servicecomp" placeholder="$ Service Aver per Employee Comp"></td>
+                </tr>
+                <tr>
+                    <td><label>Admin</label></td>
+                    <td><input class="form-control flat" name="adminee" placeholder="# Admin Employee's"></td>
+                    <td><input class="form-control flat" name="admincomp" placeholder="$ Admin Aver per Employee Comp"></td>
+                </tr>
+                <tr>
+                    <td><label><h6>Total</h6></label></td>
+                    <td id="employeesnumber"></td>
+                    <td id="employeescomp"></td>
+                </tr>
+            </table>
+            <div class="benefitscheck">
+                <label>Do you give Benefits to Employees?</label>
+                <input id="yesbenefits" class="myRadio" type="radio" name="benefits" value="yes"><label class="labelRadio"for="benefits">Yes</label>
+                <input id="nobenefits" class="myRadio" type="radio" name="benefits" value="no"><label class="labelRadio" for="benefits">No</label>
+            </div>
+            <input class="form-control flat profileinput" id="benefitscost" style="display: none" name="benefitscost" placeholder="Monthly Benefits Cost" autocomplete="on">
+            <input class="form-control flat profileinput" name="payroll" placeholder="% Payroll Burden (Default 15%)" autocomplete="on">
+            <h4><u>Occupancy</u></h4>
+                <input class="myRadio" type="radio" name="ownrent" value="own"><label class="labelRadio"for="ownrent">Own</label>
+                <input class="myRadio" type="radio" name="ownrent" value="rent"><label class="labelRadio" for="ownrent">Rent</label>
+
+                <input class="form-control flat profileinput" name="sqfootage" placeholder="Location Square Footage" autocomplete="on">
+                <input class="form-control flat profileinput" name="monthly" placeholder="$ Monthly Rent or Monthly Depreciation" autocomplete="on">
+                <input class="form-control flat profileinput" name="camcharges" placeholder="$ Monthly CAM Charges" autocomplete="on">
+                <input class="form-control flat profileinput" name="utilitycost" placeholder="$ Monthly Utility Cost" autocomplete="on">
+            <a href="#" class="next" id="next3"><span class="btn btn-primary">NEXT ></span></a>
+        </div>
+        <div id="tab4" class="tabContent" style="display: none">
+            <h4>Marketing</h4>
+            <input class="form-control flat profileinput" name="mealsentertainment" placeholder="Meals and Entertainment $ per month" autocomplete="on">
+            <input class="form-control flat profileinput" name="marketingcost" placeholder="Total Marketing Cost Yearly" autocomplete="on">
+            <table class="table" id="marketingpercentages">
+                <tr>
+                    <td><input class="form-control flat" name="webpercentage" placeholder="% on Web Marketing"></td>
+                    <td><input class="form-control flat" name="emailpercentage" placeholder="% on Email Marketing"></td>
+                    <td><input class="form-control flat" name="socialpercentage" placeholder="% on Social Media Marketing"></td>
+                </tr>
+                <tr>
+                    <td><input class="form-control flat" name="wompercentage" placeholder="% on Word of Mouth Marketing"></td>
+                    <td><input class="form-control flat" name="otherpercentage" placeholder="% on Other Marketing"></td>
+                </tr>
+            </table>
+            <h4>General-Admin</h4>
+            <input class="form-control flat profileinput" name="generalcost" placeholder=" $ Monthly General Costs" autocomplete="on">
+            <input class="form-control flat profileinput" name="insurance" placeholder="$ Yearly Insurance Cost" autocomplete="on">
+            <h6>Desired Profit</h6>
+            <input class="form-control flat profileinput" name="desiredprofit" placeholder="Desired Profit">
+            <div class="consultation">
+                <h4><u>Consultation: Click Here for Information</u></h4>
+            </div>
+            <div class="consultationcheck" id="ccheck" style="display: none">
+                <label for="consultation">Would you like detailed gameplan?</label>
+                <input class="myRadio" type="radio" name="consultation" value="true"><label class="labelRadio"for="consultation">Yes</label>
+                <input class="myRadio" type="radio" name="consultation" value="false"><label class="labelRadio" for="consultation">No</label>
+            </div>
+            <button class="btn btn-primary btn-lg" type="submit">SUBMIT</button>
+        </div>
+        </div>
+        </div>
+    </form>
+{% endblock %}
